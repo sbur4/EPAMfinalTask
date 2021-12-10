@@ -1,0 +1,33 @@
+:root {
+    --main-color: whitesmoke;
+    --grey-color: #464547;
+    --bordo-color: #8e244d;
+    --wine-color: #b22746;
+    --cyan-color: #39c2d7;
+    --main-font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    width: 100%;
+    display: flex;
+    background-color: var(--main-color);
+    font-family: var(--main-font-family);
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.container {
+    width: 100%;
+    margin-top: 250px;
+    padding: 1rem;
+    text-align: center !important;
+    justify-content: center !important;
+    align-content: center !important;
+}
+
+h2 {
+    color: var(--wine-color);
+}

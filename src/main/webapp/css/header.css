@@ -1,0 +1,30 @@
+:root {
+    --main-color: whitesmoke;
+    --grey-color: #464547;
+    --bordo-color: #8e244d;
+    --wine-color: #b22746;
+    --cyan-color: #39c2d7;
+    --main-font-family: 'Roboto', sans-serif;
+}
+
+.nav {
+    /*margin: 1rem;*/
+    padding: .25rem;
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: var(--grey-color);
+    color: var(--main-color);
+}
+
+/*ul.dMenu {*/
+
+/*}*/
+
+/*#navLang {*/
+/*    justify-content: center;*/
+/*    background-color: var(--grey-color);*/
+/*    color: var(--main-color);*/
+/*}*/

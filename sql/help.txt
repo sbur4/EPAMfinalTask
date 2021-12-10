@@ -1,0 +1,8 @@
+https://involta.ru/tools/decoder/
+utf-8 to unicode
+
+login\pass
+admin@gmail.com \ 1
+test@gmail.com \ 1
+test2@gmail.com 11
+test3@gmail.com 123

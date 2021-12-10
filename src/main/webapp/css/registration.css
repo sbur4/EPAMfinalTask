@@ -1,0 +1,40 @@
+:root {
+    --main-color: whitesmoke;
+    --grey-color: #464547;
+    --bordo-color: #8e244d;
+    --wine-color: #b22746;
+    --cyan-color: #39c2d7;
+    --main-font-family: 'Roboto', sans-serif;
+}
+
+body {
+    /*margin: 0;*/
+    /*padding: 0;*/
+    /*height: auto;*/
+    /*width: auto;*/
+    /*display: flex;*/
+    background-color: var(--main-color);
+    font-family: var(--main-font-family);
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.container {
+    /*width: auto;*/
+    /*margin-top: 250px;*/
+    /*margin-left: 100px;*/
+    padding: 0;
+    text-align: center !important;
+    justify-content: center;
+    align-content: center;
+    /*position: relative;*/
+    display: flex;
+    flex-direction: row;
+    flex-flow: nowrap;
+}
+
+.loginError {
+    font-family: var(--main-font-family);
+    font-size: 2rem;
+    color: var(--wine-color);
+}

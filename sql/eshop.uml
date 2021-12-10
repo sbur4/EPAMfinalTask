@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>b94c3a3b-2892-48f9-8326-a1271a2d91ae.SCHEMA:eshop</OriginalElement>
+  <nodes>
+    <node x="413.11883326013765" y="59.616600790513814">b94c3a3b-2892-48f9-8326-a1271a2d91ae.TABLE:eshop.ordering_status</node>
+    <node x="0.0" y="457.0">b94c3a3b-2892-48f9-8326-a1271a2d91ae.TABLE:eshop.cart</node>
+    <node x="182.10648148148147" y="446.0">b94c3a3b-2892-48f9-8326-a1271a2d91ae.TABLE:eshop.order_item</node>
+    <node x="48.125" y="234.0">b94c3a3b-2892-48f9-8326-a1271a2d91ae.TABLE:eshop.product</node>
+    <node x="242.7314814814815" y="22.0">b94c3a3b-2892-48f9-8326-a1271a2d91ae.TABLE:eshop.address</node>
+    <node x="54.81481481481481" y="0.0">b94c3a3b-2892-48f9-8326-a1271a2d91ae.TABLE:eshop.user</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="b94c3a3b-2892-48f9-8326-a1271a2d91ae.TABLE:eshop.product" target="b94c3a3b-2892-48f9-8326-a1271a2d91ae.TABLE:eshop.user">
+      <point x="0.0" y="-81.0" />
+      <point x="134.625" y="209.0" />
+      <point x="132.3148148148148" y="209.0" />
+      <point x="0.0" y="92.0" />
+    </edge>
+    <edge source="b94c3a3b-2892-48f9-8326-a1271a2d91ae.TABLE:eshop.cart" target="b94c3a3b-2892-48f9-8326-a1271a2d91ae.TABLE:eshop.user">
+      <point x="-32.25" y="-48.0" />
+      <point x="32.25" y="421.0" />
+      <point x="37.625" y="421.0" />
+      <point x="37.625" y="209.0" />
+      <point x="80.64814814814815" y="209.0" />
+      <point x="-51.66666666666666" y="92.0" />
+    </edge>
+    <edge source="b94c3a3b-2892-48f9-8326-a1271a2d91ae.TABLE:eshop.order_item" target="b94c3a3b-2892-48f9-8326-a1271a2d91ae.TABLE:eshop.user">
+      <point x="2.8421709430404007E-14" y="-59.0" />
+      <point x="246.6064814814815" y="421.0" />
+      <point x="251.9814814814815" y="421.0" />
+      <point x="251.9814814814815" y="209.0" />
+      <point x="183.98148148148147" y="209.0" />
+      <point x="51.66666666666666" y="92.0" />
+    </edge>
+    <edge source="b94c3a3b-2892-48f9-8326-a1271a2d91ae.TABLE:eshop.order_item" target="b94c3a3b-2892-48f9-8326-a1271a2d91ae.TABLE:eshop.product">
+      <point x="-42.99999999999997" y="-59.0" />
+      <point x="203.6064814814815" y="421.0" />
+      <point x="177.875" y="421.0" />
+      <point x="43.25" y="81.0" />
+    </edge>
+    <edge source="b94c3a3b-2892-48f9-8326-a1271a2d91ae.TABLE:eshop.cart" target="b94c3a3b-2892-48f9-8326-a1271a2d91ae.TABLE:eshop.product">
+      <point x="32.25" y="-48.0" />
+      <point x="96.75" y="421.0" />
+      <point x="91.375" y="421.0" />
+      <point x="-43.25" y="81.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8664383561643836" x="284.5" y="282.0" />
+  <SelectedNodes>
+    <node>b94c3a3b-2892-48f9-8326-a1271a2d91ae.TABLE:eshop.ordering_status</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+

@@ -1,0 +1,66 @@
+:root {
+    --main-color: whitesmoke;
+    --grey-color: #464547;
+    --bordo-color: #8e244d;
+    --wine-color: #b22746;
+    --cyan-color: #39c2d7;
+    --main-font-family: 'Roboto', sans-serif;
+}
+
+footer {
+    margin: 0;
+    padding: 0;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    align-content: center;
+    background-color: var(--main-color);
+    box-shadow: 0 -10px 10px 0px grey;
+    color: var(--grey-color);
+    font-family: var(--main-font-family);
+    font-size: 1.25rem;
+    font-weight: normal;
+}
+
+.footerContainer {
+    margin: 0.25rem;
+    padding: 0;
+    height: auto;
+    width: auto;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-flow: nowrap;
+    justify-content: space-between;
+    background-color: inherit;
+}
+
+.footerContainer > div {
+    background-color: inherit;
+    width: auto;
+    text-align: center;
+}
+
+.footerText {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    text-transform: uppercase;
+}
+
+.footerSocialNetwork {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-flow: nowrap;
+    flex-basis: 15%;
+    flex-grow: 0.1;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+}
+
+.fab:hover {
+    color: var(--bordo-color)
+}

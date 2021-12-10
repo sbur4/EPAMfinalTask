@@ -1,0 +1,126 @@
+:root {
+    --main-color: whitesmoke;
+    --grey-color: #464547;
+    --bordo-color: #8e244d;
+    --wine-color: #b22746;
+    --cyan-color: #39c2d7;
+    --main-font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    width: 100%;
+    background-color: var(--main-color);
+}
+
+/*main {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    width: 100%;*/
+/*    background-color: var(--main-color);*/
+/*    position: relative;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*}*/
+
+/* sort */
+
+.sortBy {
+    height: auto;
+    width: auto;
+}
+
+.sortBy > div {
+    height: 70px;
+    /*width: ;*/
+}
+
+/*.badgeNew {*/
+/*    background-color: var(--grey-color);*/
+/*}*/
+
+/*.badgeNew:hover {*/
+/*    background-color: var(--cyan-color)*/
+/*}*/
+
+.drinkClass {
+    margin: 5rem;
+    padding: 2rem;
+    height: auto;
+    width: auto;
+    justify-content: center;
+    align-content: center;
+    color: var(--grey-color);
+    font-family: var(--main-font-family);
+}
+
+.drinkContainer {
+    margin: 0.25rem;
+    padding: 1rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: center;
+    position: relative;
+}
+
+.drinkContainer > div {
+    width: auto;
+    justify-content: center;
+    text-align: center;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 20%;
+    /*flex: 0 1 20%;*/
+    height: 350px;
+    margin: 0.15rem;
+}
+
+.imgDrink {
+    height: 40%;
+}
+
+.imgDrink:hover {
+    -webkit-transform: scale(3);
+    -ms-transform: scale(3);
+    transform: scale(3);
+}
+
+/*.tagSection {*/
+/*    font-family: var(--main-font-family);*/
+/*    font-weight: 600;*/
+/*    font-size: 2rem;*/
+/*    !*text-transform: uppercase;*!*/
+/*    color: var(--grey-color);*/
+/*}*/
+
+/*.tagSection:hover {*/
+/*    color: var(--bordo-color)*/
+/*}*/
+
+.litr {
+    margin: 0.5rem;
+    font-size: 1rem;
+}
+
+.drinkName {
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+}
+
+.drinkBuy {
+    display: flex;
+    flex-direction: row;
+    flex-flow: nowrap;
+    justify-content: space-evenly;
+}
+
+#drinkPrice {
+    color: var(--wine-color);
+    font-size: 1.5rem;
+    font-weight: normal;
+}
