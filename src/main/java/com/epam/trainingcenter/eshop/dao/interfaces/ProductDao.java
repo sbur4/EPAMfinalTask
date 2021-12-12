@@ -28,7 +28,11 @@ public interface ProductDao {
 
     //pagination and sorting
 
-    List<Product> findProductsForPagination(int limit, int offset, String sortBy) throws DaoException;
+    List<Product> findProductsForPagination(int limit, int offset) throws DaoException;
 
     int getProductsSizeForPagination() throws DaoException;
+
+    List<Product> findProductsForPaginationAndSort(int limit, int offset, String sortBy) throws DaoException;
+
+    int getProductsSizeForPaginationAndSort(String sortBy) throws DaoException;
 }

@@ -3,7 +3,7 @@ package com.epam.trainingcenter.eshop.constant;
 /**
  * @author sburch
  * @version 1.0
- * Create constants name for use in another packages
+ * Constants names for use in app
  */
 
 public class ConstantNames {

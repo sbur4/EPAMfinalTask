@@ -20,12 +20,22 @@ import static com.epam.trainingcenter.eshop.constant.ConstantPageNames.CART_SERV
 
 /**
  * @author sburch
- * #
+ * @version 1.0
  */
 
 public class DeleteProductFromCartService implements Service {
     CartDao cartDao = new CartDaoImpl();
 
+    /**
+     * Servlet deletes product from cart
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     * @throws ParseException
+     * @throws SQLException
+     * @throws DaoException
+     */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException, SQLException, DaoException {
         HttpSession session = request.getSession();

@@ -17,22 +17,40 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.List;
 
-import static com.epam.trainingcenter.eshop.constant.ConstantNames.*;
-import static com.epam.trainingcenter.eshop.constant.ConstantPageNames.*;
+import static com.epam.trainingcenter.eshop.constant.ConstantNames.TOTAL_PRICE;
+import static com.epam.trainingcenter.eshop.constant.ConstantNames.USER;
+import static com.epam.trainingcenter.eshop.constant.ConstantPageNames.ORDER_JSP;
 
-public class OrderService implements Service{
+/**
+ * @author sburch
+ * @version 1.0
+ */
+
+public class OrderService implements Service {
     CartDao cartDao = new CartDaoImpl();
     ProductDao productDao = new ProductDaoImpl();
+
+    /**
+     * Servlet counts total price in cart for order
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     * @throws ParseException
+     * @throws SQLException
+     * @throws DaoException
+     */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException, SQLException, DaoException {
         RequestDispatcher dispatcher;
         HttpSession session = request.getSession();
-        long userId = ((User)session.getAttribute(USER)).getId();
+        long userId = ((User) session.getAttribute(USER)).getId();
 
         List<Long> productIdsInCart = cartDao.getProductsInCart(userId);
         long totalPrice = 0;
-        for(long productId: productIdsInCart){
-            totalPrice+= productDao.getProductById(productId).getPrice();
+        for (long productId : productIdsInCart) {
+            totalPrice += productDao.getProductById(productId).getPrice();
         }
 
         request.setAttribute(TOTAL_PRICE, totalPrice);

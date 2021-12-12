@@ -12,14 +12,31 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
-import static com.epam.trainingcenter.eshop.constant.ConstantNames.*;
-import static com.epam.trainingcenter.eshop.constant.ConstantPageNames.*;
 
-public class GetOneProductService implements Service{
+import static com.epam.trainingcenter.eshop.constant.ConstantNames.ID;
+import static com.epam.trainingcenter.eshop.constant.ConstantNames.PRODUCT;
+import static com.epam.trainingcenter.eshop.constant.ConstantPageNames.PRODUCT_DETAIL_JSP;
+
+/**
+ * @author sburch
+ * @version 1.0
+ */
+
+public class GetOneProductService implements Service {
     private ServiceFactory serviceFactory = ServiceFactory.getInstance();
     private ProductDao productDao = new ProductDaoImpl();
 
-
+    /**
+     * Servlet shows product detail
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     * @throws ParseException
+     * @throws SQLException
+     * @throws DaoException
+     */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException, SQLException, DaoException {
         RequestDispatcher dispatcher;

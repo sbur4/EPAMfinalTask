@@ -19,29 +19,30 @@ import java.util.Properties;
  */
 
 public class ConnectionPool {
+    //TODO rework pool connection
     private static final Logger LOGGER = LoggerFactory.getLogger(ConnectionPool.class);
     private static final String DB_CONNECTION_PATH = "dbConnection.properties";
-
     private static List<Connection> connectionPool = new ArrayList<>();
 
-//    private String jdbcDriver = "com.mysql.cj.jdbc.Driver";
-//    private String jdbcURL = "jdbc:mysql://localhost:3306/eshop?serverTimezone=UTC";
-
+    /**
+     * Method gets connection to database
+     *
+     * @return connectionPool
+     * @throws ConnectionException
+     * @throws IOException
+     */
     public static synchronized Connection getConnection() throws ConnectionException, IOException {
         Properties dbProperties = new Properties();
         dbProperties.load(ConnectionPool.class.getClassLoader().getResourceAsStream(DB_CONNECTION_PATH));
-
         if (connectionPool.size() > 0) {
             return connectionPool.remove(connectionPool.size() - 1);
         }
-
         try {
             Class.forName(dbProperties.getProperty("driver"));
         } catch (ClassNotFoundException e) {
             LOGGER.error("Can't find database driver");
             throw new ConnectionException(e);
         }
-
         try {
             return DriverManager.getConnection(dbProperties.getProperty("url"), dbProperties.getProperty("user"), dbProperties.getProperty("password"));
         } catch (SQLException e) {
@@ -50,6 +51,10 @@ public class ConnectionPool {
         }
     }
 
+    /**
+     *Method outs connection from database
+     * @param con
+     */
     protected synchronized void releaseConnection(Connection con) {
         connectionPool.add(con);
     }

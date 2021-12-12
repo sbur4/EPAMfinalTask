@@ -1,15 +1,20 @@
 package com.epam.trainingcenter.eshop.service;
 
-import com.epam.trainingcenter.eshop.exeption.DaoException;
-
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.text.ParseException;
+
+/**
+ * @author sburch
+ * @version 1.0
+ * interface has execute method witch do get and post  request and response
+ */
 
 public interface Service {
 
+    /**
+     * @param request
+     * @param response
+     * @throws Exception
+     */
     void execute(HttpServletRequest request, HttpServletResponse response) throws Exception;
 }

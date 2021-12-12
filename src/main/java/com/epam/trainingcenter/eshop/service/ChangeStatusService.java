@@ -15,12 +15,22 @@ import static com.epam.trainingcenter.eshop.constant.ConstantNames.*;
 
 /**
  * @author sburch
- * #
+ * @version 1.0
  */
 
 public class ChangeStatusService implements Service {
     OrderDao orderDao = new OrderDaoImpl();
 
+    /**
+     * Servlet changes order status for admin page
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     * @throws ParseException
+     * @throws SQLException
+     * @throws DaoException
+     */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException, SQLException, DaoException {
         long orderId = Long.valueOf(request.getParameter(ORDER_ID));

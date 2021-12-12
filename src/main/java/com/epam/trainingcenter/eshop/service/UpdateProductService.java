@@ -1,12 +1,12 @@
 package com.epam.trainingcenter.eshop.service;
 
+import com.epam.trainingcenter.eshop.constant.ConstantNames;
+import com.epam.trainingcenter.eshop.constant.ConstantPageNames;
 import com.epam.trainingcenter.eshop.dao.impl.ProductDaoImpl;
 import com.epam.trainingcenter.eshop.dao.interfaces.ProductDao;
 import com.epam.trainingcenter.eshop.exeption.DaoException;
 import com.epam.trainingcenter.eshop.model.Product;
 import com.epam.trainingcenter.eshop.service.factory.ProductFactory;
-import com.epam.trainingcenter.eshop.constant.ConstantNames;
-import com.epam.trainingcenter.eshop.constant.ConstantPageNames;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -27,6 +27,8 @@ public class UpdateProductService implements Service {
     ProductFactory productFactory = ProductFactory.getInstance();
 
     /**
+     * Servlet updates product info
+     *
      * @param request
      * @param response
      * @throws ServletException
@@ -37,7 +39,7 @@ public class UpdateProductService implements Service {
      */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException, SQLException, DaoException {
-        //TODO check authentication
+        //TODO check
         RequestDispatcher dispatcher;
         HttpSession session = request.getSession();
         String productName = request.getParameter(ConstantNames.NAME);

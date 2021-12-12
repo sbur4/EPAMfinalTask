@@ -20,13 +20,24 @@ import static com.epam.trainingcenter.eshop.constant.ConstantPageNames.HOME_SERV
 
 /**
  * @author sburch
- * #
+ * @version 1.0
  */
 
 public class DeleteProductService implements Service {
     ProductDao productDao = new ProductDaoImpl();
     CartDao cartDao = new CartDaoImpl();
 
+    /**
+     * Servlet deletes products
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     * @throws ParseException
+     * @throws SQLException
+     * @throws DaoException
+     */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException, SQLException, DaoException {
         long productId = Long.valueOf(request.getParameter(PRODUCT_ID));

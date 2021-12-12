@@ -16,18 +16,31 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.List;
 
-import static com.epam.trainingcenter.eshop.constant.ConstantNames.*;
-import static com.epam.trainingcenter.eshop.constant.ConstantPageNames.*;
+import static com.epam.trainingcenter.eshop.constant.ConstantNames.PRODUCT_ID;
+import static com.epam.trainingcenter.eshop.constant.ConstantNames.USER;
+import static com.epam.trainingcenter.eshop.constant.ConstantPageNames.CART_SERVICE;
+import static com.epam.trainingcenter.eshop.constant.ConstantPageNames.HOME_SERVICE;
 
 /**
  * @author sburch
- * #
+ * @version 1.0
  */
 
 public class AddProductToCartService implements Service {
     CartDao cartDao = new CartDaoImpl();
     CartFactory cartFactory = CartFactory.getInstance();
 
+    /**
+     * Servlet adds product to cart
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     * @throws ParseException
+     * @throws SQLException
+     * @throws DaoException
+     */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException, SQLException, DaoException {
         HttpSession session = request.getSession();

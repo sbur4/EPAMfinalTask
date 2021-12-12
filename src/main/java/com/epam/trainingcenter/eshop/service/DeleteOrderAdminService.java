@@ -15,12 +15,12 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
 
-import static com.epam.trainingcenter.eshop.constant.ConstantNames.*;
-import static com.epam.trainingcenter.eshop.constant.ConstantPageNames.*;
+import static com.epam.trainingcenter.eshop.constant.ConstantNames.ORDER_ID;
+import static com.epam.trainingcenter.eshop.constant.ConstantPageNames.ORDERS_ADMIN_SERVICE;
 
 /**
  * @author sburch
- * #
+ * @version 1.0
  */
 
 public class DeleteOrderAdminService implements Service {
@@ -28,6 +28,17 @@ public class DeleteOrderAdminService implements Service {
     OrderItemDao orderItemDao = new OrderItemDaoImpl();
     AddressDao addressDao = new AddressDaoImpl();
 
+    /**
+     * Servlet deletes order for admin page
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     * @throws ParseException
+     * @throws SQLException
+     * @throws DaoException
+     */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException, SQLException, DaoException {
         long orderId = Long.valueOf(request.getParameter(ORDER_ID));

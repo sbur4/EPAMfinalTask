@@ -102,9 +102,10 @@
                             </li>
                         </form>
                         <form method="get">
-                            <input type="hidden" value="capacity0_5" name="sortBy">
-                            <button type="submit" class="dropdown-item" href="#"><fmt:message
-                                    key="button.capacity0_5"/></button>
+                            <li>
+                                <input type="hidden" value="capacity0_5" name="sortBy">
+                                <button type="submit" class="dropdown-item" href="#"><fmt:message
+                                        key="button.capacity0_5"/></button>
                             </li>
                         </form>
                         <form method="get">
@@ -159,7 +160,7 @@
                             data-bs-toggle="dropdown" aria-expanded="false"><fmt:message
                             key="button.material"/></button>
                     <ul class="dropdown-menu">
-                        <form method="get">
+                        <form  method="get">
                             <li>
                                 <input type="hidden" value="all" name="sortBy">
                                 <button type="submit" class="dropdown-item" href="#"><fmt:message
@@ -216,6 +217,7 @@
                         <li class="page-item">
                             <c:choose>
                                 <c:when test="${page - 1 > 0}">
+                                    <%--                                    <a href="home?page=${page-1}&pageSize=${pageSize}&sortBy=${param.sortBy}"--%>
                                     <a href="home?page=${page-1}&pageSize=${pageSize}&sortBy=${param.sortBy}"
                                        class="page-link bg-secondary text-white border-0" aria-label="Previous"
                                     ><span
@@ -232,6 +234,7 @@
                                     <c:when
                                             test="${page == p}">${p}</c:when>
                                     <c:otherwise>
+                                        <%--                                        <a href="home?page=${p}&pageSize=${pageSize}&sortBy=${param.sortBy}"--%>
                                         <a href="home?page=${p}&pageSize=${pageSize}&sortBy=${param.sortBy}"
                                            class="page-link bg-secondary text-white border-0">${p}</a>
                                     </c:otherwise>
@@ -241,6 +244,7 @@
                         <li class="page-item">
                             <c:choose>
                                 <c:when test="${page + 1 <= pageCount}">
+                                    <%--                                    <a href="home?page=${page+1}&pageSize=${pageSize}&sortBy=${param.sortBy}"--%>
                                     <a href="home?page=${page+1}&pageSize=${pageSize}&sortBy=${param.sortBy}"
                                        class="page-link  bg-secondary text-white border-0" aria-label="Next"><span
                                             aria-hidden="true">&raquo;</span></a>

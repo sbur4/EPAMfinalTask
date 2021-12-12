@@ -17,30 +17,46 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 
-import static com.epam.trainingcenter.eshop.constant.ConstantNames.*;
-import static com.epam.trainingcenter.eshop.constant.ConstantPageNames.*;
+import static com.epam.trainingcenter.eshop.constant.ConstantNames.ORDERS;
+import static com.epam.trainingcenter.eshop.constant.ConstantNames.USER;
+import static com.epam.trainingcenter.eshop.constant.ConstantPageNames.LOGIN_SERVICE;
+import static com.epam.trainingcenter.eshop.constant.ConstantPageNames.ORDERS_ADMIN_JSP;
 
-public class ListOfOrdersForAdminService implements Service{
+/**
+ * @author sburch
+ * @version 1.0
+ */
+
+public class ListOfOrdersForAdminService implements Service {
 
     UserDao userDao = new UserDaoImpl();
     OrderDao orderDao = new OrderDaoImpl();
 
+    /**
+     * Servlet shows orders list for admin page
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     * @throws ParseException
+     * @throws SQLException
+     * @throws DaoException
+     */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException, SQLException, DaoException {
         HttpSession session = request.getSession();
         RequestDispatcher dispatcher;
 
-
-        User currentUser = (User)session.getAttribute(USER);
-        if(currentUser.isAdmin()){
+        User currentUser = (User) session.getAttribute(USER);
+        if (currentUser.isAdmin()) {
             ArrayList<ArrayList<String>> orders = orderDao.getFrom4Tables();
             request.setAttribute(ORDERS, orders);
-
 
             dispatcher = request.getRequestDispatcher(ORDERS_ADMIN_JSP);
             dispatcher.forward(request, response);
 
-        }else {
+        } else {
             response.sendRedirect(LOGIN_SERVICE);
         }
     }

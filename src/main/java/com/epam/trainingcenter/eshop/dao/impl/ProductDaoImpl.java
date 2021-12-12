@@ -45,14 +45,25 @@ public class ProductDaoImpl extends ConnectionPool implements ProductDao {
     private static final String SORT_CAP_1_L = "SELECT * FROM product WHERE description LIKE '%1 L%' limit ? offset ?";
     private static final String SORT_CAP_1_5_L = "SELECT * FROM product WHERE description LIKE '%1.5%' limit ? offset ?";
     private static final String SORT_CAP_2_L = "SELECT * FROM product WHERE description LIKE '%2%' limit ? offset ?";
+    private static final String GET_SIZE_CAP_033_L = "SELECT COUNT(*) FROM product WHERE description LIKE '%0.33%'";
+    private static final String GET_SIZE_CAP_05_L = "SELECT COUNT(*) FROM product WHERE description LIKE '%0.5%'";
+    private static final String GET_SIZE_CAP_075_L = "SELECT COUNT(*) FROM product WHERE description LIKE '%0.75%'";
+    private static final String GET_SIZE_CAP_1_L = "SELECT COUNT(*) FROM product WHERE description LIKE '%1 L%'";
+    private static final String GET_SIZE_CAP_1_5_L = "SELECT COUNT(*) FROM product WHERE description LIKE '%1.5%'";
+    private static final String GET_SIZE_CAP_2_L = "SELECT COUNT(*) FROM product WHERE description LIKE '%2%'";
     //Sorting requests material
     private static final String SORT_MAT_PLASTIC = "SELECT * FROM product WHERE description LIKE '%PL%' limit ? offset ?";
     private static final String SORT_MAT_GLASS = "SELECT * FROM product WHERE description LIKE '%GL%' limit ? offset ?";
     private static final String SORT_MAT_METAL = "SELECT * FROM product WHERE description LIKE '%CAN%' limit ? offset ?";
+    private static final String GET_SIZE_MAT_PLASTIC = "SELECT COUNT(*) FROM product WHERE description LIKE '%PL%'";
+    private static final String GET_SIZE_MAT_GLASS = "SELECT COUNT(*) FROM product WHERE description LIKE '%GL%'";
+    private static final String GET_SIZE_MAT_METAL = "SELECT COUNT(*) FROM product WHERE description LIKE '%CAN%'";
 
     /**
+     * Method gets product by id
+     *
      * @param id
-     * @return Product by id
+     * @return product
      * @throws DaoException
      */
     public Product getProductById(Long id) throws DaoException {
@@ -87,7 +98,9 @@ public class ProductDaoImpl extends ConnectionPool implements ProductDao {
     }
 
     /**
-     * @return Product list
+     * Method gets all products
+     *
+     * @return products
      * @throws DaoException
      */
     public List<Product> getAllProduct() throws DaoException {
@@ -122,7 +135,9 @@ public class ProductDaoImpl extends ConnectionPool implements ProductDao {
     }
 
     /**
-     * @param product Update product
+     * Method updates product
+     *
+     * @param product
      * @throws DaoException
      */
     public void updateProduct(Product product) throws DaoException {
@@ -151,7 +166,9 @@ public class ProductDaoImpl extends ConnectionPool implements ProductDao {
     }
 
     /**
-     * @param product Create product
+     * Method gets product by id
+     *
+     * @param product
      * @throws SQLException
      * @throws IOException
      */
@@ -276,7 +293,77 @@ public class ProductDaoImpl extends ConnectionPool implements ProductDao {
 //        return products;
 //    }
 
-    public List<Product> findProductsForPagination(int limit, int offset, String sortBy) throws DaoException {
+    /**
+     * Method finds products for pagination on page
+     *
+     * @param limit
+     * @param offset
+     * @return products
+     * @throws DaoException
+     */
+    public List<Product> findProductsForPagination(int limit, int offset) throws DaoException {
+        List<Product> products = new ArrayList<>();
+        Connection con = null;
+        try {
+            con = ConnectionPool.getConnection();
+            PreparedStatement pstmt = con.prepareStatement(GET_PRODUCTS);
+            pstmt.setInt(1, limit);
+            pstmt.setInt(2, offset);
+            ResultSet rs = pstmt.executeQuery(); //
+            while (rs.next()) {
+                Product product = new Product();
+                product.setId(rs.getInt(ID));
+                product.setName(rs.getString(NAME));
+                product.setDescription(rs.getString(DESCRIPTION));
+                product.setPrice(rs.getDouble(PRICE));
+                product.setImage_url(rs.getString(IMAGE_URL));
+                products.add(product);
+            }
+            pstmt.close();
+            releaseConnection(con);
+        } catch (Exception e) {
+            try {
+                if (con != null)
+                    con.close();
+            } catch (SQLException e2) {
+                LOGGER.error("Error connection", e2);
+            }
+            LOGGER.error("Error get all product", e);
+        }
+        return products;
+    }
+
+    /**
+     * Method counts size of products for pagination on page
+     *
+     * @return size
+     * @throws DaoException
+     */
+    public int getProductsSizeForPagination() throws DaoException {
+        int size = 0;
+        try {
+            Connection con = ConnectionPool.getConnection();
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(GET_PRODUCTS_SIZE);
+            if (rs.next()) {
+                size = rs.getInt(1);
+            }
+        } catch (SQLException | IOException e) {
+            e.printStackTrace();
+        }
+        return size;
+    }
+
+    /**
+     * Method finds products for pagination to sort products on page
+     *
+     * @param limit
+     * @param offset
+     * @param sortBy
+     * @return products
+     * @throws DaoException
+     */
+    public List<Product> findProductsForPaginationAndSort(int limit, int offset, String sortBy) throws DaoException {
         List<Product> products = new ArrayList<>();
         Connection con = null;
         PreparedStatement pstmt;
@@ -310,7 +397,7 @@ public class ProductDaoImpl extends ConnectionPool implements ProductDao {
                 case "capacity1_5":
                     pstmt = con.prepareStatement(SORT_CAP_1_5_L);
                     break;
-                case "capacity12":
+                case "capacity2":
                     pstmt = con.prepareStatement(SORT_CAP_2_L);
                     break;
                 case "materialPlastic":
@@ -352,12 +439,51 @@ public class ProductDaoImpl extends ConnectionPool implements ProductDao {
         return products;
     }
 
-    public int getProductsSizeForPagination() throws DaoException {
+    /**
+     * Method counts size of products for pagination to sort products on page
+     *
+     * @param sortBy
+     * @return size
+     * @throws DaoException
+     */
+    public int getProductsSizeForPaginationAndSort(String sortBy) throws DaoException {
         int size = 0;
         try {
             Connection con = ConnectionPool.getConnection();
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(GET_PRODUCTS_SIZE);
+            ResultSet rs;
+            switch (sortBy) {
+                case "capacity0_3":
+                    rs = stmt.executeQuery(GET_SIZE_CAP_033_L);
+                    break;
+                case "capacity0_5":
+                    rs = stmt.executeQuery(GET_SIZE_CAP_05_L);
+                    break;
+                case "capacity0_7":
+                    rs = stmt.executeQuery(GET_SIZE_CAP_075_L);
+                    break;
+                case "capacity1":
+                    rs = stmt.executeQuery(GET_SIZE_CAP_1_L);
+                    break;
+                case "capacity1_5":
+                    rs = stmt.executeQuery(GET_SIZE_CAP_1_5_L);
+                    break;
+                case "capacity2":
+                    rs = stmt.executeQuery(GET_SIZE_CAP_2_L);
+                    break;
+                case "materialPlastic":
+                    rs = stmt.executeQuery(GET_SIZE_MAT_PLASTIC);
+                    break;
+                case "materialGlass":
+                    rs = stmt.executeQuery(GET_SIZE_MAT_GLASS);
+                    break;
+                case "materialMetal":
+                    rs = stmt.executeQuery(GET_SIZE_MAT_METAL);
+                    break;
+                case "all":
+                default:
+                    rs = stmt.executeQuery(GET_PRODUCTS_SIZE);
+            }
             if (rs.next()) {
                 size = rs.getInt(1);
             }
@@ -366,5 +492,4 @@ public class ProductDaoImpl extends ConnectionPool implements ProductDao {
         }
         return size;
     }
-
 }

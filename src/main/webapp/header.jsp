@@ -7,7 +7,7 @@
 <%@page import="java.util.List" %>
 
 <header>
-    <nav class="nav navbar-expand-sm navbar-light fixed-top">
+    <nav class="nav navbar-expand-md navbar-light fixed-top">
         <div class="container-fluid">
             <ul class="navbar-nav d-flex justify-content-center align-items-center">
 <%--                page=${page}&pageSize=${pageSize}&sortBy--%>

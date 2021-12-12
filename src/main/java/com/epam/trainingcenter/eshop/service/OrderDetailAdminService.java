@@ -1,5 +1,7 @@
 package com.epam.trainingcenter.eshop.service;
 
+import com.epam.trainingcenter.eshop.constant.ConstantNames;
+import com.epam.trainingcenter.eshop.constant.ConstantPageNames;
 import com.epam.trainingcenter.eshop.dao.impl.OrderItemDaoImpl;
 import com.epam.trainingcenter.eshop.dao.impl.ProductDaoImpl;
 import com.epam.trainingcenter.eshop.dao.impl.StatusDaoImpl;
@@ -9,8 +11,6 @@ import com.epam.trainingcenter.eshop.dao.interfaces.StatusDao;
 import com.epam.trainingcenter.eshop.exeption.DaoException;
 import com.epam.trainingcenter.eshop.model.Product;
 import com.epam.trainingcenter.eshop.model.Status;
-import com.epam.trainingcenter.eshop.constant.ConstantNames;
-import com.epam.trainingcenter.eshop.constant.ConstantPageNames;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,21 +22,35 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderDetailAdminService implements Service{
+/**
+ * @author sburch
+ * @version 1.0
+ */
 
+public class OrderDetailAdminService implements Service {
     OrderItemDao orderItemDao = new OrderItemDaoImpl();
     ProductDao productDao = new ProductDaoImpl();
     StatusDao statusDao = new StatusDaoImpl();
+
+    /**
+     * Servlet shows order detail for admin page
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     * @throws ParseException
+     * @throws SQLException
+     * @throws DaoException
+     */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException, SQLException, DaoException {
-
         RequestDispatcher dispatcher;
-
         long orderId = Long.valueOf(request.getParameter(ConstantNames.ORDER_ID));
         ArrayList<Long> productsIds = orderItemDao.getProductsIdFromOrderItem(orderId);
 
         ArrayList<Product> products = new ArrayList<>();
-        for(Long productId : productsIds){
+        for (Long productId : productsIds) {
             products.add(productDao.getProductById(productId));
         }
 

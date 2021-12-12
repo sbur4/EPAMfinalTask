@@ -3,6 +3,12 @@ package com.epam.trainingcenter.eshop.service;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author sburch
+ * @version 1.0
+ * Map services of actions
+ */
+
 public class ServiceFactory {
 
     private static final Map<String, Service> SERVICE_MAP = new HashMap<>();
@@ -33,6 +39,11 @@ public class ServiceFactory {
         SERVICE_MAP.put("/order", new OrderService());
     }
 
+    /**
+     * Method get service action
+     * @param request
+     * @return service
+     */
     public Service getService(String request) {
         Service service = SERVICE_MAP.get("/error");
 
@@ -44,8 +55,11 @@ public class ServiceFactory {
         return service;
     }
 
+    /**
+     * Singleton for Service Factory
+     * @return SERVICE_FACTORY
+     */
     public static ServiceFactory getInstance() {
         return SERVICE_FACTORY;
     }
-
 }

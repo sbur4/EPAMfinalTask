@@ -14,16 +14,32 @@ import java.io.IOException;
 /**
  * @author sburch
  * @version 1.0
- * Main servlet controller
+ * Main servlet
  */
 
 public class Controller extends HttpServlet {
     private final Logger LOGGER = LoggerFactory.getLogger(Controller.class);
 
+    /**
+     * Method post for request and  response
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
 
+    /**
+     * Method get for request and  response
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String path = request.getServletPath();
         ServiceFactory serviceFactory = ServiceFactory.getInstance();
@@ -31,7 +47,7 @@ public class Controller extends HttpServlet {
         try {
             service.execute(request, response);
         } catch (Exception e) {
-            LOGGER.error("Error get request", e);
+            LOGGER.error("Error execute request, response", e);
         }
     }
 }
