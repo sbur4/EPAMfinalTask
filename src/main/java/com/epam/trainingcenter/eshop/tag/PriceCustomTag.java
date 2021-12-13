@@ -15,6 +15,12 @@ import java.io.IOException;
 public class PriceCustomTag extends SimpleTagSupport {
     private static final String HRYVNIA_SIGN = "&#8372";
 
+    /**
+     * Make tag on page
+     *
+     * @throws JspException
+     * @throws IOException
+     */
     public void doTag() throws JspException, IOException {
         JspWriter out = getJspContext().getOut();
         out.println(HRYVNIA_SIGN);

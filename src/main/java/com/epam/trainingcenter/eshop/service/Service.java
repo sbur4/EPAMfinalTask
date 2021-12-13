@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 public interface Service {
 
     /**
+     * Interface for request and response
+     *
      * @param request
      * @param response
      * @throws Exception

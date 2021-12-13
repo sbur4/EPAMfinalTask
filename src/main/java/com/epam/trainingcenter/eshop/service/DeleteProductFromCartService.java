@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.util.List;
 
 import static com.epam.trainingcenter.eshop.constant.ConstantNames.PRODUCT_ID;
 import static com.epam.trainingcenter.eshop.constant.ConstantNames.USER;
@@ -28,6 +27,7 @@ public class DeleteProductFromCartService implements Service {
 
     /**
      * Servlet deletes product from cart
+     *
      * @param request
      * @param response
      * @throws ServletException
@@ -39,9 +39,9 @@ public class DeleteProductFromCartService implements Service {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException, SQLException, DaoException {
         HttpSession session = request.getSession();
-        long userId = ((User)session.getAttribute(USER)).getId();
+        long userId = ((User) session.getAttribute(USER)).getId();
         long productId = Long.valueOf(request.getParameter(PRODUCT_ID));
-        cartDao.DeleteProductInCart(productId,userId);
+        cartDao.DeleteProductInCart(productId, userId);
         response.sendRedirect(CART_SERVICE);
     }
 }

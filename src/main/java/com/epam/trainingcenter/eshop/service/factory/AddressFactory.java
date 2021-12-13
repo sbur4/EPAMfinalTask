@@ -7,12 +7,10 @@ import com.epam.trainingcenter.eshop.model.Address;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-
 import java.io.IOException;
 import java.sql.SQLException;
 
 import static com.epam.trainingcenter.eshop.constant.ConstantNames.*;
-import static com.epam.trainingcenter.eshop.constant.ConstantNames.PHONE;
 
 /**
  * @author sburch
@@ -27,7 +25,7 @@ public class AddressFactory {
      * Fill fields in database when create new Address
      *
      * @param request
-     * @return
+     * @return address
      * @throws ServletException
      * @throws IOException
      * @throws SQLException

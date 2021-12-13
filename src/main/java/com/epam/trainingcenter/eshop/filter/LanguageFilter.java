@@ -12,7 +12,7 @@ import javax.servlet.ServletResponse;
 /**
  * @author sburch
  * @version 1.0
- * This filter make encoding with charset utf-8.
+ * This filter makes encoding with charset utf-8.
  */
 
 public class LanguageFilter implements Filter {

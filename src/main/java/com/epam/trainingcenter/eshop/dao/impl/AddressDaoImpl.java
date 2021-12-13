@@ -7,7 +7,6 @@ import com.epam.trainingcenter.eshop.model.Address;
 import com.sun.org.slf4j.internal.Logger;
 import com.sun.org.slf4j.internal.LoggerFactory;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -58,7 +57,9 @@ public class AddressDaoImpl extends ConnectionPool implements AddressDao {
     }
 
     /**
-     * @return last id
+     * Take last id
+     *
+     * @return id
      * @throws DaoException
      */
     @Override
@@ -80,7 +81,7 @@ public class AddressDaoImpl extends ConnectionPool implements AddressDao {
                     con.close();
             } catch (SQLException e2) {
             }
-            LOGGER.error("Error get last address", e);
+            LOGGER.error("Error get last id", e);
         }
         return lastId;
     }

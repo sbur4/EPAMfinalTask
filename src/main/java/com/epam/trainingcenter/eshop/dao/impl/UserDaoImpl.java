@@ -40,7 +40,9 @@ public class UserDaoImpl extends ConnectionPool implements UserDao {
     }
 
     /**
-     * @param user Method add User to database
+     * Method add User to database
+     *
+     * @param user
      * @throws SQLException
      * @throws IOException
      */
@@ -73,9 +75,11 @@ public class UserDaoImpl extends ConnectionPool implements UserDao {
     }
 
     /**
-     * @param login    Get user parameters
+     * Gets user parameters
+     *
+     * @param login
      * @param password
-     * @return
+     * @return user
      * @throws DaoException
      */
     public User getUserByLoginPassword(String login, String password) throws DaoException {
@@ -112,8 +116,10 @@ public class UserDaoImpl extends ConnectionPool implements UserDao {
     }
 
     /**
-     * @param email Verify email
-     * @return
+     * Verify email
+     *
+     * @param email
+     * @return isExist
      * @throws DaoException
      */
     public boolean isEmailExist(String email) throws DaoException {
@@ -142,7 +148,9 @@ public class UserDaoImpl extends ConnectionPool implements UserDao {
     }
 
     /**
-     * @return List of Users
+     * Gets list of Users
+     *
+     * @return users
      * @throws DaoException
      */
     public List<User> getUsers() throws DaoException {
@@ -178,7 +186,9 @@ public class UserDaoImpl extends ConnectionPool implements UserDao {
     }
 
     /**
-     * @param userId   Method make User active
+     * Method makes User active
+     *
+     * @param userId
      * @param isActive
      * @throws DaoException
      */

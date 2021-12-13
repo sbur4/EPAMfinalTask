@@ -11,7 +11,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
 
-import static com.epam.trainingcenter.eshop.constant.ConstantNames.*;
+import static com.epam.trainingcenter.eshop.constant.ConstantNames.ORDER_ID;
+import static com.epam.trainingcenter.eshop.constant.ConstantNames.STATUS_ID;
 
 /**
  * @author sburch
@@ -23,6 +24,7 @@ public class ChangeStatusService implements Service {
 
     /**
      * Servlet changes order status for admin page
+     *
      * @param request
      * @param response
      * @throws ServletException

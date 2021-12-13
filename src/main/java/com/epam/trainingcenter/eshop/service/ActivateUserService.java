@@ -11,7 +11,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
 
-import static com.epam.trainingcenter.eshop.constant.ConstantNames.*;
+import static com.epam.trainingcenter.eshop.constant.ConstantNames.ALL_USER;
+import static com.epam.trainingcenter.eshop.constant.ConstantNames.USER_ID;
 
 /**
  * @author sburch
@@ -23,6 +24,7 @@ public class ActivateUserService implements Service {
 
     /**
      * Servlet activates User. Makes his alive)))
+     *
      * @param request
      * @param response
      * @throws ServletException

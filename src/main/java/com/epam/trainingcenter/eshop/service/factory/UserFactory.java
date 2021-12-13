@@ -1,10 +1,9 @@
 package com.epam.trainingcenter.eshop.service.factory;
 
 import com.epam.trainingcenter.eshop.model.User;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.servlet.http.HttpServletRequest;
-
-import org.apache.commons.codec.digest.DigestUtils;
 
 import static com.epam.trainingcenter.eshop.constant.ConstantNames.*;
 
@@ -17,7 +16,8 @@ public class UserFactory {
     private static UserFactory instance = new UserFactory();
 
     /**
-     * Fill fields in database when create new User
+     * Fills fields in database when create new User
+     *
      * @param request
      * @param admin
      * @return new User
@@ -36,7 +36,8 @@ public class UserFactory {
     }
 
     /**
-     * Check instance of User
+     * Checks instance of User
+     *
      * @return instance
      */
     public static UserFactory getInstance() {

@@ -1,7 +1,5 @@
 package com.epam.trainingcenter.eshop.exeption;
 
-import java.sql.SQLException;
-
 /**
  * @author sburch
  * @version 1.0
@@ -18,15 +16,19 @@ public class DaoException extends Exception {
     }
 
     /**
-     * @param message The message of the exception
+     * Constructs a new exception with the specified detail message
+     *
+     * @param message
      */
     public DaoException(String message) {
         super(message);
     }
 
     /**
-     * @param message The message of the exception
-     * @param cause   The message of the cause
+     * Constructs a new exception with the specified detail message and cause
+     *
+     * @param message
+     * @param cause
      */
     public DaoException(String message, Throwable cause) {
         super(message, cause);

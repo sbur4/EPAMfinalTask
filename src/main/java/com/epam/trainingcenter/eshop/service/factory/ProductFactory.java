@@ -18,7 +18,7 @@ public class ProductFactory {
     private static ProductFactory instance = new ProductFactory();
 
     /**
-     * Fill fields in database when create new Product
+     * Fills fields in database when create new Product
      *
      * @param request
      * @return product
@@ -36,7 +36,7 @@ public class ProductFactory {
     }
 
     /**
-     * Update Product
+     * Updates Product
      *
      * @param request
      * @return product
@@ -55,7 +55,7 @@ public class ProductFactory {
     }
 
     /**
-     * Check instance of Product
+     * Checks instance of Product
      *
      * @return instance
      */

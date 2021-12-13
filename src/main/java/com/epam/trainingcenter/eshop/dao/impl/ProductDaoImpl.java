@@ -198,7 +198,9 @@ public class ProductDaoImpl extends ConnectionPool implements ProductDao {
     }
 
     /**
-     * @param productName Get searched products
+     * Get searched products
+     *
+     * @param productName
      * @return
      * @throws DaoException
      */
@@ -239,7 +241,9 @@ public class ProductDaoImpl extends ConnectionPool implements ProductDao {
     }
 
     /**
-     * @param productId Delete product
+     * Delete product
+     *
+     * @param productId
      * @throws DaoException
      */
     public void deleteProduct(long productId) throws DaoException {
@@ -349,7 +353,7 @@ public class ProductDaoImpl extends ConnectionPool implements ProductDao {
                 size = rs.getInt(1);
             }
         } catch (SQLException | IOException e) {
-            e.printStackTrace();
+            LOGGER.error("Error get products size", e);
         }
         return size;
     }
@@ -434,7 +438,7 @@ public class ProductDaoImpl extends ConnectionPool implements ProductDao {
             } catch (SQLException e2) {
                 LOGGER.error("Error connection", e2);
             }
-            LOGGER.error("Error get all product", e);
+            LOGGER.error("Error get all product for pagination and sort", e);
         }
         return products;
     }
@@ -488,7 +492,7 @@ public class ProductDaoImpl extends ConnectionPool implements ProductDao {
                 size = rs.getInt(1);
             }
         } catch (SQLException | IOException e) {
-            e.printStackTrace();
+            LOGGER.error("Error get products size for pagination and sort", e);
         }
         return size;
     }

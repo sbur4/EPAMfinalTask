@@ -14,9 +14,35 @@ import java.util.List;
  */
 
 public interface StatusDao {
+    /**
+     * Interface to gets id by status name
+     *
+     * @param statusName
+     * @return
+     * @throws SQLException
+     * @throws IOException
+     * @throws DaoException
+     */
     Long getIdByStatusName(String statusName) throws SQLException, IOException, DaoException;
 
+    /**
+     * Interface to gets all statuses
+     *
+     * @return
+     * @throws SQLException
+     * @throws IOException
+     * @throws DaoException
+     */
     List<Status> getAllStatuses() throws SQLException, IOException, DaoException;
 
+    /**
+     * Interface to gets status by order id
+     *
+     * @param orderId
+     * @return
+     * @throws SQLException
+     * @throws IOException
+     * @throws DaoException
+     */
     Status getStatusByOrderId(Long orderId) throws SQLException, IOException, DaoException;
 }

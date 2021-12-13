@@ -7,8 +7,10 @@ import com.epam.trainingcenter.eshop.model.Order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import static com.epam.trainingcenter.eshop.constant.ConstantNames.*;
@@ -76,7 +78,7 @@ public class OrderDaoImpl extends ConnectionPool implements OrderDao {
     /**
      * Get last id
      *
-     * @return The last id
+     * @return lastId
      * @throws DaoException
      */
     @Override
@@ -106,7 +108,7 @@ public class OrderDaoImpl extends ConnectionPool implements OrderDao {
     /**
      * Get all order
      *
-     * @return Order list
+     * @return orders
      * @throws DaoException
      */
     @Override
@@ -141,7 +143,7 @@ public class OrderDaoImpl extends ConnectionPool implements OrderDao {
     /**
      * Get orders list
      *
-     * @return list orders
+     * @return orders
      * @throws DaoException
      */
     @Override
@@ -212,7 +214,7 @@ public class OrderDaoImpl extends ConnectionPool implements OrderDao {
      * Get order by user id
      *
      * @param userId
-     * @return List of orders
+     * @return orders
      * @throws DaoException
      */
     @Override

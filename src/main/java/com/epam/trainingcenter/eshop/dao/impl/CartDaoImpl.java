@@ -68,7 +68,7 @@ public class CartDaoImpl extends ConnectionPool implements CartDao {
      * Get products in cart
      *
      * @param userId
-     * @return list of products
+     * @return productsIds
      * @throws DaoException
      */
     public List<Long> getProductsInCart(long userId) throws DaoException {
@@ -129,7 +129,7 @@ public class CartDaoImpl extends ConnectionPool implements CartDao {
      * Get cart
      *
      * @param cart
-     * @return new cart
+     * @return newCart
      * @throws DaoException
      */
     public Cart getCart(Cart cart) throws DaoException {
@@ -158,10 +158,10 @@ public class CartDaoImpl extends ConnectionPool implements CartDao {
     }
 
     /**
-     * Get all from cart
+     * Get all products from cart
      *
      * @param productId
-     * @return cart list
+     * @return carts
      * @throws DaoException
      */
     public List<Cart> getAllFromCart(long productId) throws DaoException {

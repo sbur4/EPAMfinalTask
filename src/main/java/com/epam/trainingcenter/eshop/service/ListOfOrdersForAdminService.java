@@ -28,7 +28,6 @@ import static com.epam.trainingcenter.eshop.constant.ConstantPageNames.ORDERS_AD
  */
 
 public class ListOfOrdersForAdminService implements Service {
-
     UserDao userDao = new UserDaoImpl();
     OrderDao orderDao = new OrderDaoImpl();
 

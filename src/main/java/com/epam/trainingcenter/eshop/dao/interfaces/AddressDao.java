@@ -9,13 +9,36 @@ import java.sql.SQLException;
 /**
  * @author sburch
  * @version 1.0
- * interface to handle the database operation required to manipulate Address entity
+ * Interface to handle the database operation required to manipulate Address entity
  */
 
 public interface AddressDao {
+    /**
+     * Interface to creates address
+     *
+     * @param address
+     * @throws SQLException
+     * @throws IOException
+     * @throws DaoException
+     */
     void createAddress(Address address) throws SQLException, IOException, DaoException;
 
+    /**
+     * Interface to returns last id
+     *
+     * @return id
+     * @throws SQLException
+     * @throws DaoException
+     */
     Long takeLastID() throws SQLException, DaoException;
 
+    /**
+     * Interface to deletes address by id
+     *
+     * @param addressId
+     * @throws SQLException
+     * @throws IOException
+     * @throws DaoException
+     */
     void deleteAddressById(Long addressId) throws SQLException, IOException, DaoException;
 }

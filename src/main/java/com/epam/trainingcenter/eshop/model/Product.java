@@ -190,7 +190,7 @@ public class Product {
     }
 
     /**
-     * Method returns object with parametrs to string
+     * Method returns object with parameters to string
      */
     @Override
     public String toString() {

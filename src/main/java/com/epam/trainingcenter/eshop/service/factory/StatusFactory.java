@@ -6,7 +6,6 @@ import com.epam.trainingcenter.eshop.exeption.DaoException;
 import com.epam.trainingcenter.eshop.model.Status;
 
 import javax.servlet.http.HttpServletRequest;
-
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -22,7 +21,7 @@ public class StatusFactory {
     StatusDao statusDao = new StatusDaoImpl();
 
     /**
-     * Fill status
+     * Fills status
      *
      * @param request
      * @return status
@@ -38,7 +37,7 @@ public class StatusFactory {
     }
 
     /**
-     * Check instance of Status
+     * Checks instance of Status
      *
      * @return instance
      */

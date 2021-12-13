@@ -7,8 +7,10 @@ import com.epam.trainingcenter.eshop.model.OrderItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import static com.epam.trainingcenter.eshop.constant.ConstantNames.PRODUCT_ID_TABLE;
@@ -58,8 +60,10 @@ public class OrderItemDaoImpl extends ConnectionPool implements OrderItemDao {
     }
 
     /**
+     * Get products id from order item
+     *
      * @param orderId
-     * @return Products id from order item
+     * @return productsId
      * @throws DaoException
      */
     @Override

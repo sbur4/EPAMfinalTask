@@ -12,7 +12,9 @@ public class ProductBuilderImpl implements ProductBuilder {
     Product product = new Product();
 
     /**
-     * @param id Set product id
+     * Sets product id
+     *
+     * @param id
      * @return id
      */
     public ProductBuilder setId(long id) {
@@ -21,7 +23,9 @@ public class ProductBuilderImpl implements ProductBuilder {
     }
 
     /**
-     * @param name Set product name
+     * Sets product name
+     *
+     * @param name
      * @return name
      */
     public ProductBuilder setName(String name) {
@@ -30,7 +34,9 @@ public class ProductBuilderImpl implements ProductBuilder {
     }
 
     /**
-     * @param description Set product description
+     * Sets product description
+     *
+     * @param description
      * @return description
      */
     public ProductBuilder setDescription(String description) {
@@ -39,7 +45,9 @@ public class ProductBuilderImpl implements ProductBuilder {
     }
 
     /**
-     * @param price Set product price
+     * Sets product price
+     *
+     * @param price
      * @return price
      */
     public ProductBuilder setPrice(double price) {
@@ -48,7 +56,9 @@ public class ProductBuilderImpl implements ProductBuilder {
     }
 
     /**
-     * @param image_url Set product image_url
+     * Sets product image_url
+     *
+     * @param image_url
      * @return image_url
      */
     public ProductBuilder setImage_url(String image_url) {
@@ -57,7 +67,9 @@ public class ProductBuilderImpl implements ProductBuilder {
     }
 
     /**
-     * @param userId Set product userId
+     * Sets product userId
+     *
+     * @param userId
      * @return userId
      */
     public ProductBuilder setUserId(long userId) {
@@ -66,6 +78,8 @@ public class ProductBuilderImpl implements ProductBuilder {
     }
 
     /**
+     * Build Product
+     *
      * @return product
      */
     @Override

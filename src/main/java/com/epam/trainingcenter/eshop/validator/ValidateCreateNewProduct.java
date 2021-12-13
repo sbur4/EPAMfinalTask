@@ -3,7 +3,7 @@ package com.epam.trainingcenter.eshop.validator;
 /**
  * @author sburch
  * @version 1.0
- * This class checks input datas
+ * This class checks input data's when create new product
  */
 
 

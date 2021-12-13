@@ -3,7 +3,7 @@ package com.epam.trainingcenter.eshop.validator;
 /**
  * @author sburch
  * @version 1.0
- * This class checks input datas
+ * This class validates input data's
  */
 
 public class ValidateRegistration {
@@ -18,8 +18,8 @@ public class ValidateRegistration {
     /**
      * Validate login when input one
      *
-     * @param login User login
-     * @return login after check
+     * @param login
+     * @return login
      */
     public static boolean validateMailWithRegex(String login) {
         return login.matches(MAIL_REGEX);
@@ -28,8 +28,8 @@ public class ValidateRegistration {
     /**
      * Validate password when input one
      *
-     * @param password User password
-     * @return password after check
+     * @param password
+     * @return password
      */
     public static boolean validatePasswordWithRegex(String password) {
         return password.matches(PASSWORD_REGEX);

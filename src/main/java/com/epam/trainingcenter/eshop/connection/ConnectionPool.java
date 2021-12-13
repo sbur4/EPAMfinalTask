@@ -52,7 +52,8 @@ public class ConnectionPool {
     }
 
     /**
-     *Method outs connection from database
+     * Method outs connection from database
+     *
      * @param con
      */
     protected synchronized void releaseConnection(Connection con) {
