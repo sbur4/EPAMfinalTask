@@ -77,4 +77,7 @@ public interface CartDao {
      * @throws DaoException
      */
     void deleteProductFromCartByUserId(long userId) throws SQLException, IOException, DaoException;
+
+//    задача на защите
+//    int getAllInCart() throws DaoException;
 }

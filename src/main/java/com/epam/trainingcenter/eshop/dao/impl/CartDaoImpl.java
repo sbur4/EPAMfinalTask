@@ -36,6 +36,8 @@ public class CartDaoImpl extends ConnectionPool implements CartDao {
     //This request delete only 1 product if we have equals products
     private static final String DELETE_PRODUCT_FROM_CART = "DELETE FROM cart WHERE product_id = ? AND user_id = ? LIMIT 1";
 
+    private static final String COUNT_PRODUCTS_IN_CART = "SELECT COUNT(product_id) AS count FROM cart";
+
     /**
      * Add product to cart
      *
@@ -217,4 +219,29 @@ public class CartDaoImpl extends ConnectionPool implements CartDao {
             LOGGER.warn("INFO?", e);
         }
     }
+
+    //    задача на защите
+//    @Override
+//    public int getAllInCart() throws DaoException {
+//        Connection con = null;
+//        int countProducts = 0;
+//        try {
+//            con = getConnection();
+//            PreparedStatement preparedStatement = con.prepareStatement(COUNT_PRODUCTS_IN_CART);
+//            ResultSet rs = preparedStatement.executeQuery();
+//            while (rs.next()) {
+//                countProducts = (int) rs.getLong("count");
+//            }
+//            preparedStatement.close();
+//            releaseConnection(con);
+//        } catch (Exception e) {
+//            try {
+//                if (con != null)
+//                    con.close();
+//            } catch (SQLException e2) {
+//            }
+//            LOGGER.error("Error getting cart", e);
+//        }
+//        return countProducts;
+//    }
 }

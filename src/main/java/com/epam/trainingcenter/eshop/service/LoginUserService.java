@@ -52,7 +52,7 @@ public class LoginUserService implements Service {
             User user = userDao.getUserByLoginPassword(login, securedPassword);
 
             if (user != null) {
-                if (ValidateActiveUser.checkAccess(user)) {
+                if (user.isActive()) {
                     session.setAttribute(USER, user);
                     session.setAttribute(ADMIN, user.isAdmin());
                     response.sendRedirect(ConstantPageNames.HOME_SERVICE);
@@ -60,14 +60,12 @@ public class LoginUserService implements Service {
                     request.setAttribute(ERROR, ERROR_USER_BLOCKED);
                     dispatcher = request.getRequestDispatcher(ConstantPageNames.LOGIN_JSP);
                     dispatcher.forward(request, response);
-
                 }
             } else {
                 request.setAttribute(ERROR, ERROR_EMAIL_OR_PASSWORD);
                 dispatcher = request.getRequestDispatcher(ConstantPageNames.LOGIN_JSP);
                 dispatcher.forward(request, response);
             }
-
         } else {
             dispatcher = request.getRequestDispatcher(ConstantPageNames.LOGIN_JSP);
             dispatcher.forward(request, response);

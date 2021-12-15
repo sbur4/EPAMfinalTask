@@ -47,10 +47,17 @@ public class ListOfOrdersForAdminService implements Service {
         HttpSession session = request.getSession();
         RequestDispatcher dispatcher;
 
+//    задача на защите
+//        CartDao cartDao = new CartDaoImpl();
+//        int count = cartDao.getAllInCart();
+
         User currentUser = (User) session.getAttribute(USER);
         if (currentUser.isAdmin()) {
             ArrayList<ArrayList<String>> orders = orderDao.getFrom4Tables();
             request.setAttribute(ORDERS, orders);
+
+            //    задача на защите
+//            request.setAttribute("count", count);
 
             dispatcher = request.getRequestDispatcher(ORDERS_ADMIN_JSP);
             dispatcher.forward(request, response);

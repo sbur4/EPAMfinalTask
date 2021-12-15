@@ -56,6 +56,13 @@
     </table>
 </div>
 
+<%--задача на защите--%>
+<%--<div class="container m-5">--%>
+<%--    <div>--%>
+<%--        ${count}--%>
+<%--    </div>--%>
+<%--</div>--%>
+
 <%@ include file="footer.jsp" %>
 
 </body>

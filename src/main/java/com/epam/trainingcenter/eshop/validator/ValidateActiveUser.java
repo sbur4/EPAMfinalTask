@@ -20,7 +20,7 @@ public class ValidateActiveUser {
         boolean isAccess = false;
         boolean isActivity = user.isActive();
 
-        if (isActivity == true) {
+        if (isActivity) {
             isAccess = true;
         }
         return isAccess;
